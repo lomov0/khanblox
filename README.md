@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>KhanBlox v1.3.4</title>
+<title>KhanBlox v1.4.1</title>
 <style>
   * { box-sizing: border-box; }
   body {
@@ -252,16 +252,19 @@
       justify-content: center;
       padding: 0 12px 14px;
     }
-    .btn {
-      background: #00b06b;
-      color: #fff;
-      border: 0;
-      padding: 9px 14px;
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .btn:hover { background: #00c97d; }
+   .btn {
+  background: #007bff;
+  color: #fff;
+  border: 0;
+  padding: 9px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover { 
+  background: #0056b3;
+}
 
     .wallet, .currency-actions, .social, .chat-box {
       background: #1f1f1f;
@@ -493,67 +496,155 @@ document.getElementById("greeting").textContent = greeting;
 
 <div class="sidebar">
 
-<!-- Create (Hammer & Wrench Icon) -->
+<!-- Create -->
 <a href="canva.com" target="_blank" title="Create your own game">
   <button class="icon-btn">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="#ccc" xmlns="http://www.w3.org/2000/svg">
-      <path d="M22.7 19.3l-2-2c-.4-.4-1-.4-1.4 0l-1.3 1.3-2.3-2.3 1.3-1.3c.4-.4.4-1 0-1.4l-2-2c-.4-.4-1-.4-1.4 0l-1.3 1.3-2.3-2.3 1.3-1.3c.4-.4.4-1 0-1.4l-2-2c-.4-.4-1-.4-1.4 0L2.3 9.3c-.4.4-.4 1 0 1.4l2 2c.4.4 1 .4 1.4 0l1.3-1.3 2.3 2.3-1.3 1.3c-.4.4-.4 1 0 1.4l2 2c.4.4 1 .4 1.4 0l1.3-1.3 2.3 2.3-1.3 1.3c-.4.4-.4 1 0 1.4l2 2c.4.4 1 .4 1.4 0l3.3-3.3c.4-.4.4-1 0-1.4z"/>
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+      <!-- Circle -->
+      <circle cx="12" cy="12" r="8"
+              fill="none"
+              stroke="#ccc"
+              stroke-width="1.8"/>
+
+      <!-- Plus -->
+      <path d="M12 8v8M8 12h8"
+            stroke="#ccc"
+            stroke-width="1.8"
+            stroke-linecap="round"/>
+
     </svg>
   </button>
 </a>
+<!-- Games -->
+<a href="https://1drv.ms/u/c/19f35a43e4c860be/IQB01fwF4533RZYG2tyqctiyASuj11PRG5-b3M35Oa6n3Mk?e=oWdZMf"
+   target="_blank"
+   title="Games">
+  <button class="icon-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 
+      <!-- Container -->
+      <rect x="3.5" y="4.5" width="17" height="15" rx="3"
+            fill="none"
+            stroke="#aaa"
+            stroke-width="1.5"/>
 
-  <!-- Home -->
-  <a href="https://1drv.ms/u/c/19f35a43e4c860be/IQB01fwF4533RZYG2tyqctiyASuj11PRG5-b3M35Oa6n3Mk?e=oWdZMf" target="_blank" title="Home">
-    <button class="icon-btn">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="#ccc" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
-      </svg>
-    </button>
-  </a>
-  <!-- Games -->
-  <a href="https://1drv.ms/u/c/19f35a43e4c860be/IQB01fwF4533RZYG2tyqctiyASuj11PRG5-b3M35Oa6n3Mk?e=oWdZMf" target="_blank" title="Games">
-    <button class="icon-btn">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="#ccc" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 5v14l11-7z"/>
-      </svg>
-    </button>
-  </a>
+      <!-- Play icon -->
+      <path d="M10 9l5 3-5 3z"
+            fill="none"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-linejoin="round"/>
 
-  <!-- Chat -->
-  <a href="https://www.canva.com/design/DAGycvpO8Zw/_JZYg2I4B7NZ8Cxs-GVDQQ/edit?utm_content=DAGycvpO8Zw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" title="Chat">
-    <button class="icon-btn">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="#ccc" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 4h16v12H5.17L4 17.17V4z"/>
-        <line x1="7" y1="8" x2="17" y2="8" stroke="#ccc" stroke-width="1.5"/>
-        <line x1="7" y1="11" x2="17" y2="11" stroke="#ccc" stroke-width="1.5"/>
-        <line x1="7" y1="14" x2="13" y2="14" stroke="#ccc" stroke-width="1.5"/>
-      </svg>
-    </button>
-  </a>
-
+    </svg>
+  </button>
+</a>
+<!-- Chat -->
+<a href="https://www.canva.com/design/DAGycvpO8Zw/_JZYg2I4B7NZ8Cxs-GVDQQ/edit?utm_content=DAGycvpO8Zw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" title="Chat">
+  <button class="icon-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      
+      <!-- Chat bubble -->
+      <path d="M5 4.5
+               h14
+               a2 2 0 0 1 2 2
+               v8
+               a2 2 0 0 1 -2 2
+               H9
+               l-4 3
+               v-3
+               H5
+               a2 2 0 0 1 -2 -2
+               v-8
+               a2 2 0 0 1 2 -2z"
+            fill="none"
+            stroke="#aaa"
+            stroke-width="1.5"
+            stroke-linejoin="round"/>
+      <line x1="7" y1="8" x2="17" y2="8"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-linecap="round"/>
+      <line x1="7" y1="11" x2="17" y2="11"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-linecap="round"/>
+      <line x1="7" y1="14" x2="13" y2="14"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-linecap="round"/>
+    </svg>
+  </button>
+</a>
   <!-- Profile -->
-  <a href="canva.com" target="_blank" title="Profile">
-    <button class="icon-btn">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="#ccc" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
-      </svg>
-    </button>
-  </a>
+<a href="canva.com" target="_blank" title="Profile">
+  <button class="icon-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 
-<!-- Updates & Community Standards -->
-<a href="https://www.canva.com/design/DAG6-zp9kqM/XPTwG8gQ3QmZkfcQyZmZWA/edit?utm_content=DAG6-zp9kqM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" title="Updates & Community Standards">
-  <button class="icon-btn" style="margin-top:8px; margin-bottom:8px;">
-    <svg width="29" height="29" viewBox="0 0 24 20" fill="#ccc" xmlns="http://www.w3.org/2000/svg" style="padding:4px;">
-      <!-- Shorter document icon -->
-      <path d="M6 2h9l5 5v11a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/>
-      <line x1="8" y1="7" x2="16" y2="7" stroke="#ccc" stroke-width="1.5"/>
-      <line x1="8" y1="10" x2="16" y2="10" stroke="#ccc" stroke-width="1.5"/>
-      <line x1="8" y1="13" x2="14" y2="13" stroke="#ccc" stroke-width="1.5"/>
+      <!-- Head -->
+      <circle cx="12" cy="8" r="4"
+              fill="none"
+              stroke="#aaa"
+              stroke-width="1.5"/>
+
+      <!-- Body / shoulders -->
+      <path d="M4 20
+               c0-4 4-6 8-6
+               s8 2 8 6"
+            fill="none"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-linecap="round"/>
+
     </svg>
   </button>
 </a>
+<!-- Updates & Community Standards -->
+<a href="https://www.canva.com/design/DAG6-zp9kqM/XPTwG8gQ3QmZkfcQyZmZWA/edit?utm_content=DAG6-zp9kqM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+   target="_blank"
+   title="Updates & Community Standards">
+  <button class="icon-btn" style="margin-top:8px; margin-bottom:8px;">
+    <svg width="29" height="29" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="padding:4px;">
 
+      <!-- Document outline -->
+      <path d="M6 3
+               h8
+               l4 4
+               v13
+               a1.5 1.5 0 0 1 -1.5 1.5
+               H6
+               A1.5 1.5 0 0 1 4.5 20
+               V4.5
+               A1.5 1.5 0 0 1 6 3z"
+            fill="none"
+            stroke="#aaa"
+            stroke-width="1.5"
+            stroke-linejoin="round"/>
+
+      <!-- Folded corner -->
+      <path d="M14 3v4h4"
+            fill="none"
+            stroke="#aaa"
+            stroke-width="1.5"
+            stroke-linejoin="round"/>
+
+      <!-- Content lines -->
+      <line x1="8" y1="10" x2="16" y2="10"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-linecap="round"/>
+      <line x1="8" y1="13" x2="16" y2="13"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-linecap="round"/>
+      <line x1="8" y1="16" x2="14" y2="16"
+            stroke="#ccc"
+            stroke-width="1.5"
+            stroke-linecap="round"/>
+
+    </svg>
+  </button>
+</a>
   <!-- More -->
   <a href="https://1drv.ms/u/c/19f35a43e4c860be/IQB01fwF4533RZYG2tyqctiyASuj11PRG5-b3M35Oa6n3Mk?e=oWdZMf" target="_blank" title="More">
     <button class="icon-btn">
@@ -872,9 +963,6 @@ document.getElementById("greeting").textContent = greeting;
         </a>
       </div>
     </article>
-
-
-
 
 <article class="game-card">
   <div class="thumb">
