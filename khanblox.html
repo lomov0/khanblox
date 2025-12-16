@@ -48,6 +48,7 @@
     margin: 0;
     color: #aaaaaa;
     font-size: 18px;
+
   }
   .games {
     display: flex;
@@ -517,7 +518,7 @@ document.getElementById("greeting").textContent = greeting;
   </button>
 </a>
 <!-- Games -->
-<a href="https://1drv.ms/u/c/19f35a43e4c860be/IQB01fwF4533RZYG2tyqctiyASuj11PRG5-b3M35Oa6n3Mk?e=oWdZMf"
+<a href="https://www.khanacademy.org/computer-programming/khanblox-v141/6642431498502144"
    target="_blank"
    title="Games">
   <button class="icon-btn">
