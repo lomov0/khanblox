@@ -2612,7 +2612,7 @@ document.getElementById("greeting").textContent = greeting;
 </main>
 
 <footer>
-  © 2025 KhanBlox | Built Using HTML.
+  © 2026 KhanBlox | Built Using HTML.
 </footer>
 </body>
 </html>
