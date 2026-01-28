@@ -7,3 +7,5 @@ KhanBlox is the name of this project. KhanBlox is not affiliated with, endorsed 
 All trademarks, service marks, and brand names used in this repository belong to their respective owners. Any use of these marks is for identification and reference purposes only and does not imply endorsement.
 
 You may not use the name, logo, or branding of this project (including "KhanBlox") without prior written permission from the project maintainers. If you would like to use the project name or logo for a public distribution, product, or service, contact: <lomov0@eq.edu.au>.
+
+If you plan to enforce or register a trademark, consult an IP attorney — a markdown file is informative but trademark rights and enforcement are legal matters.
