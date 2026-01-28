@@ -1738,38 +1738,79 @@ Doors
 <!-- Sky Gradient -->
 <defs>
 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0%" stop-color="#ffeaa7"/>
-<stop offset="100%" stop-color="#dff9fb"/>
+  <stop offset="0%" stop-color="#ffeaa7"/>
+  <stop offset="60%" stop-color="#fdf1c2"/>
+  <stop offset="100%" stop-color="#dff9fb"/>
 </linearGradient>
+
+<!-- Cloud Gradient -->
+<linearGradient id="cloud" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#ffffff" opacity="0.9"/>
+  <stop offset="100%" stop-color="#ffffff" opacity="0.4"/>
+</linearGradient>
+
+<!-- Sun Glow -->
+<radialGradient id="sunGlow">
+  <stop offset="0%" stop-color="#f6e58d" />
+  <stop offset="100%" stop-color="#f6e58d" stop-opacity="0" />
+</radialGradient>
 </defs>
+
+<!-- Background Sky -->
 <rect width="200" height="120" fill="url(#sky)"/>
+
+<!-- Sun Glow -->
+<circle cx="170" cy="30" r="25" fill="url(#sunGlow)" opacity="0.6"/>
 <!-- Sun -->
-<circle cx="170" cy="30" r="12" fill="#f6e58d" opacity="0.8"/>
-<!-- Ocean -->
+<circle cx="170" cy="30" r="12" fill="#f6e58d" stroke="#f9ca24" stroke-width="2"/>
+
+<!-- Clouds -->
+<ellipse cx="40" cy="25" rx="18" ry="8" fill="url(#cloud)"/>
+<ellipse cx="55" cy="28" rx="14" ry="6" fill="url(#cloud)"/>
+<ellipse cx="130" cy="20" rx="20" ry="9" fill="url(#cloud)"/>
+<ellipse cx="145" cy="23" rx="15" ry="7" fill="url(#cloud)"/>
+
+<!-- Ocean Base -->
 <rect y="80" width="200" height="40" fill="#74b9ff"/>
-<path d="M0 85 Q20 82 40 85 Q60 88 80 85 Q100 82 120 85 Q140 88 160 85 Q180 82 200 85 V120 H0 Z" fill="#81ecec"/>
+
+<!-- Ocean Waves -->
+<path d="M0 82 Q20 78 40 82 Q60 86 80 82 Q100 78 120 82 Q140 86 160 82 Q180 78 200 82 V120 H0 Z"
+      fill="#81ecec" opacity="0.8"/>
+<path d="M0 90 Q25 87 50 90 Q75 93 100 90 Q125 87 150 90 Q175 93 200 90"
+      stroke="#dff9fb" stroke-width="1" fill="none" opacity="0.7"/>
+
 <!-- Island -->
-<ellipse cx="100" cy="90" rx="40" ry="10" fill="#f6e58d"/>
-<ellipse cx="100" cy="92" rx="30" ry="6" fill="#eccc68"/>
-<!-- Palm Tree -->
-<path d="M100 60 Q98 70 95 90" stroke="#a0522d" stroke-width="6" fill="none"/>
-<path d="M100 60 Q90 50 80 60" fill="#27ae60"/>
-<path d="M100 60 Q110 50 120 60" fill="#27ae60"/>
-<path d="M100 60 Q100 45 105 55" fill="#27ae60"/>
-<path d="M100 60 Q95 50 90 55" fill="#27ae60"/>
+<ellipse cx="100" cy="90" rx="42" ry="12" fill="#f6e58d"/>
+<ellipse cx="100" cy="92" rx="32" ry="7" fill="#eccc68"/>
+<ellipse cx="100" cy="94" rx="20" ry="4" fill="#d4a94a" opacity="0.6"/>
+
+<!-- Palm Tree Trunk -->
+<path d="M100 60 Q98 70 95 90" stroke="#8e5a2d" stroke-width="7" stroke-linecap="round"/>
+<path d="M100 60 Q98 70 95 90" stroke="#a97442" stroke-width="3" stroke-linecap="round"/>
+
+<!-- Palm Leaves -->
+<path d="M100 60 Q90 48 78 58" fill="#27ae60" stroke="#145a32" stroke-width="1"/>
+<path d="M100 60 Q110 48 122 58" fill="#27ae60" stroke="#145a32" stroke-width="1"/>
+<path d="M100 60 Q100 42 108 54" fill="#27ae60" stroke="#145a32" stroke-width="1"/>
+<path d="M100 60 Q95 48 88 54" fill="#27ae60" stroke="#145a32" stroke-width="1"/>
+
 <!-- Fruits -->
-<circle cx="80" cy="70" r="8" fill="#2ecc71"/>
-<circle cx="120" cy="70" r="8" fill="#e67e22"/>
-<circle cx="80" cy="70" r="3" fill="#a3e4d7"/> <!-- Shine -->
+<circle cx="80" cy="70" r="8" fill="#2ecc71" stroke="#145a32" stroke-width="1"/>
+<circle cx="120" cy="70" r="8" fill="#e67e22" stroke="#a84300" stroke-width="1"/>
+<circle cx="80" cy="70" r="3" fill="#a3e4d7"/>
 <circle cx="120" cy="70" r="3" fill="#f8c471"/>
 <text x="80" y="75" font-size="6" text-anchor="middle" fill="#fff">🍏</text>
 <text x="120" y="75" font-size="6" text-anchor="middle" fill="#fff">🍊</text>
+
 <!-- Sword -->
-<polygon points="140,50 144,45 148,50 148,78 140,78" fill="#34495e"/>
-<rect x="137" y="78" width="14" height="4" rx="2" fill="#c0392b"/>
+<polygon points="140,50 144,45 148,50 148,78 140,78"
+         fill="#2c3e50" stroke="#1c2833" stroke-width="1"/>
 <line x1="144" y1="45" x2="144" y2="78" stroke="#ecf0f1" stroke-width="1"/>
+<rect x="137" y="78" width="14" height="5" rx="2" fill="#c0392b" stroke="#922b21" stroke-width="1"/>
+
 <!-- Energy Aura -->
-<circle cx="144" cy="60" r="16" fill="none" stroke="#81ecec" stroke-width="2" stroke-dasharray="4"/>
+<circle cx="144" cy="60" r="18" fill="none" stroke="#81ecec" stroke-width="2" stroke-dasharray="5" opacity="0.8"/>
+<circle cx="144" cy="60" r="22" fill="none" stroke="#b2f7f7" stroke-width="1" stroke-dasharray="6" opacity="0.4"/>
 </svg>
 </div>
 <div class="info">
@@ -2277,38 +2318,79 @@ Doors
 <!-- Sky Gradient -->
 <defs>
 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-<stop offset="0%" stop-color="#ffeaa7"/>
-<stop offset="100%" stop-color="#dff9fb"/>
+  <stop offset="0%" stop-color="#ffeaa7"/>
+  <stop offset="60%" stop-color="#fdf1c2"/>
+  <stop offset="100%" stop-color="#dff9fb"/>
 </linearGradient>
+
+<!-- Cloud Gradient -->
+<linearGradient id="cloud" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#ffffff" opacity="0.9"/>
+  <stop offset="100%" stop-color="#ffffff" opacity="0.4"/>
+</linearGradient>
+
+<!-- Sun Glow -->
+<radialGradient id="sunGlow">
+  <stop offset="0%" stop-color="#f6e58d" />
+  <stop offset="100%" stop-color="#f6e58d" stop-opacity="0" />
+</radialGradient>
 </defs>
+
+<!-- Background Sky -->
 <rect width="200" height="120" fill="url(#sky)"/>
+
+<!-- Sun Glow -->
+<circle cx="170" cy="30" r="25" fill="url(#sunGlow)" opacity="0.6"/>
 <!-- Sun -->
-<circle cx="170" cy="30" r="12" fill="#f6e58d" opacity="0.8"/>
-<!-- Ocean -->
+<circle cx="170" cy="30" r="12" fill="#f6e58d" stroke="#f9ca24" stroke-width="2"/>
+
+<!-- Clouds -->
+<ellipse cx="40" cy="25" rx="18" ry="8" fill="url(#cloud)"/>
+<ellipse cx="55" cy="28" rx="14" ry="6" fill="url(#cloud)"/>
+<ellipse cx="130" cy="20" rx="20" ry="9" fill="url(#cloud)"/>
+<ellipse cx="145" cy="23" rx="15" ry="7" fill="url(#cloud)"/>
+
+<!-- Ocean Base -->
 <rect y="80" width="200" height="40" fill="#74b9ff"/>
-<path d="M0 85 Q20 82 40 85 Q60 88 80 85 Q100 82 120 85 Q140 88 160 85 Q180 82 200 85 V120 H0 Z" fill="#81ecec"/>
+
+<!-- Ocean Waves -->
+<path d="M0 82 Q20 78 40 82 Q60 86 80 82 Q100 78 120 82 Q140 86 160 82 Q180 78 200 82 V120 H0 Z"
+      fill="#81ecec" opacity="0.8"/>
+<path d="M0 90 Q25 87 50 90 Q75 93 100 90 Q125 87 150 90 Q175 93 200 90"
+      stroke="#dff9fb" stroke-width="1" fill="none" opacity="0.7"/>
+
 <!-- Island -->
-<ellipse cx="100" cy="90" rx="40" ry="10" fill="#f6e58d"/>
-<ellipse cx="100" cy="92" rx="30" ry="6" fill="#eccc68"/>
-<!-- Palm Tree -->
-<path d="M100 60 Q98 70 95 90" stroke="#a0522d" stroke-width="6" fill="none"/>
-<path d="M100 60 Q90 50 80 60" fill="#27ae60"/>
-<path d="M100 60 Q110 50 120 60" fill="#27ae60"/>
-<path d="M100 60 Q100 45 105 55" fill="#27ae60"/>
-<path d="M100 60 Q95 50 90 55" fill="#27ae60"/>
+<ellipse cx="100" cy="90" rx="42" ry="12" fill="#f6e58d"/>
+<ellipse cx="100" cy="92" rx="32" ry="7" fill="#eccc68"/>
+<ellipse cx="100" cy="94" rx="20" ry="4" fill="#d4a94a" opacity="0.6"/>
+
+<!-- Palm Tree Trunk -->
+<path d="M100 60 Q98 70 95 90" stroke="#8e5a2d" stroke-width="7" stroke-linecap="round"/>
+<path d="M100 60 Q98 70 95 90" stroke="#a97442" stroke-width="3" stroke-linecap="round"/>
+
+<!-- Palm Leaves -->
+<path d="M100 60 Q90 48 78 58" fill="#27ae60" stroke="#145a32" stroke-width="1"/>
+<path d="M100 60 Q110 48 122 58" fill="#27ae60" stroke="#145a32" stroke-width="1"/>
+<path d="M100 60 Q100 42 108 54" fill="#27ae60" stroke="#145a32" stroke-width="1"/>
+<path d="M100 60 Q95 48 88 54" fill="#27ae60" stroke="#145a32" stroke-width="1"/>
+
 <!-- Fruits -->
-<circle cx="80" cy="70" r="8" fill="#2ecc71"/>
-<circle cx="120" cy="70" r="8" fill="#e67e22"/>
-<circle cx="80" cy="70" r="3" fill="#a3e4d7"/> <!-- Shine -->
+<circle cx="80" cy="70" r="8" fill="#2ecc71" stroke="#145a32" stroke-width="1"/>
+<circle cx="120" cy="70" r="8" fill="#e67e22" stroke="#a84300" stroke-width="1"/>
+<circle cx="80" cy="70" r="3" fill="#a3e4d7"/>
 <circle cx="120" cy="70" r="3" fill="#f8c471"/>
 <text x="80" y="75" font-size="6" text-anchor="middle" fill="#fff">🍏</text>
 <text x="120" y="75" font-size="6" text-anchor="middle" fill="#fff">🍊</text>
+
 <!-- Sword -->
-<polygon points="140,50 144,45 148,50 148,78 140,78" fill="#34495e"/>
-<rect x="137" y="78" width="14" height="4" rx="2" fill="#c0392b"/>
+<polygon points="140,50 144,45 148,50 148,78 140,78"
+         fill="#2c3e50" stroke="#1c2833" stroke-width="1"/>
 <line x1="144" y1="45" x2="144" y2="78" stroke="#ecf0f1" stroke-width="1"/>
+<rect x="137" y="78" width="14" height="5" rx="2" fill="#c0392b" stroke="#922b21" stroke-width="1"/>
+
 <!-- Energy Aura -->
-<circle cx="144" cy="60" r="16" fill="none" stroke="#81ecec" stroke-width="2" stroke-dasharray="4"/>
+<circle cx="144" cy="60" r="18" fill="none" stroke="#81ecec" stroke-width="2" stroke-dasharray="5" opacity="0.8"/>
+<circle cx="144" cy="60" r="22" fill="none" stroke="#b2f7f7" stroke-width="1" stroke-dasharray="6" opacity="0.4"/>
 </svg>
 </div>
 <div class="info">
@@ -2322,9 +2404,9 @@ Doors
 </div>
 </article>
 </section>
-<!-- User Created Games Section -->
+<!-- User Created Section -->
 <section class="games">
-<h2>User Created Games ></h2>
+<h2>User Created ></h2>
 </section>
 </main>
 <footer>
