@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" rx="16" fill="#0f1720" />
+  <g transform="translate(60,60)">
+    <rect x="0" y="0" width="200" height="200" rx="20" fill="#000" transform="rotate(12 100 100)" />
+    <text x="100" y="140" font-family="Arial Black, sans-serif" font-size="110" fill="#fff" text-anchor="middle" transform="rotate(12 100 100)">K</text>
+  </g>
+  <text x="320" y="180" font-family="Inter, Arial, sans-serif" font-size="56" fill="#fff">KhanBlox</text>
+  <text x="320" y="240" font-family="Inter, Arial, sans-serif" font-size="24" fill="#9aa4ad">Create & Play — Built by lomov0</text>
+</svg>

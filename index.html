@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KhanBlox — Create & Play</title>
+  <meta name="description" content="KhanBlox — create games, play with friends, and explore community-made experiences." />
+  <link rel="canonical" href="https://lomov0.github.io/khanblox/" />
+  <!-- Open Graph + Twitter Card -->
+  <meta property="og:title" content="KhanBlox — Create & Play" />
+  <meta property="og:description" content="Create games, play with friends, and explore community-made experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lomov0.github.io/khanblox/" />
+  <meta property="og:image" content="https://lomov0.github.io/khanblox/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#151515" />
+  <link rel="manifest" href="/manifest.webmanifest">
+  <style>
+    :root{
+      --bg:#121212; --panel:#1f1f1f; --muted:#aaaaaa; --accent:#00b06b; --btn:#007bff; --text:#ffffff;
+      --light-bg:#f7f7f7; --light-text:#111111;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;color:var(--text);background:var(--bg)}
+    header{background:#181818;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;margin-left:60px}
+    .brand{display:inline-flex;align-items:center;gap:12px}
+    .brand span{font-weight:800;letter-spacing:.4px;font-size:18px}
+    .sidebar{position:fixed;left:0;top:0;width:60px;height:100vh;background:#181818;display:flex;flex-direction:column;align-items:center;padding-top:20px;z-index:1000}
+    .icon-btn{background:none;border:0;color:#ccc;font-size:20px;margin:14px 0;cursor:pointer}
+    .icon-btn:hover{color:var(--accent)}
+    /* Layout containers moved after sidebar */
+    main, header, .hero, .games, footer { margin-left:60px; }
+    .hero{background:#1a1a1a;padding:36px 20px;text-align:center}
+    .hero h2{font-size:32px;margin:0 0 8px}
+    .hero p{margin:0;color:var(--muted)}
+    .games{display:flex;flex-wrap:wrap;gap:14px;padding:20px;max-width:1100px;margin:0 auto}
+    .game-card{background:var(--panel);width:240px;border-radius:10px;overflow:hidden;box-shadow:0 0 0 rgba(0,0,0,0);transition:transform .18s,box-shadow .18s}
+    .game-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.28)}
+    .thumb{width:100%;height:140px;display:grid;place-items:center;background:linear-gradient(180deg,#3a3a3a,#2b2b2b)}
+    .info{padding:12px}
+    .info h3{margin:0 0 8px;font-size:18px}
+    .actions{display:flex;justify-content:center;padding:0 12px 14px}
+    .btn{background:var(--btn);color:#fff;border:0;padding:9px 14px;border-radius:6px;font-weight:700;cursor:pointer}
+    .btn.play{background:var(--accent)}
+    .btn:focus{outline:2px solid rgba(255,255,255,.08)}
+    footer{background:#232527;text-align:center;padding:20px;font-size:14px;color:#888;margin-top:20px;margin-left:60px}
+    /* Loading screen */
+    #loading-screen{position:fixed;inset:0;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity 1s ease}
+    #loading-screen.hidden{opacity:0;pointer-events:none}
+    .loading-dots{display:flex;gap:8px;margin-top:20px}
+    .loading-dots span{width:12px;height:12px;background:#fff;border-radius:50%;display:inline-block;animation:bounce .6s infinite alternate}
+    @keyframes bounce{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+    /* Toggle dark/light theme */
+    .theme-toggle{background:none;border:0;color:var(--muted);cursor:pointer;font-weight:700;padding:6px 8px;border-radius:6px}
+    /* Light theme overrides */
+    .light{ --bg:var(--light-bg); --panel:#ffffff; --muted:#444; --accent:#008a4d; --btn:#0066cc; --text:var(--light-text) }
+    /* Responsive */
+    @media(max-width:560px){
+      header{margin-left:0}
+      main, .hero, .games, footer { margin-left:0; }
+      .game-card{width:92%;max-width:420px}
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen" aria-hidden="false" role="status">
+    <div class="logo-rotate" style="margin-bottom:16px;transform:translateY(-20px) rotate(12deg)">
+      <svg width="80" height="80" viewBox="0 0 100 100" aria-hidden="true">
+        <rect x="15" y="15" width="70" height="70" rx="8" fill="#000"/>
+        <text x="50" y="65" text-anchor="middle" font-size="50" font-family="Arial Black" fill="#fff" transform="rotate(12 50 50)">K</text>
+      </svg>
+    </div>
+    <div class="loading-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+  </div>
+
+  <div class="sidebar" aria-hidden="false">
+    <a href="https://www.canva.com" target="_blank" rel="noopener" title="Create"><button class="icon-btn" aria-label="Create">✚</button></a>
+    <a href="#" title="Games"><button class="icon-btn" aria-label="Games">▶</button></a>
+    <a href="#" title="Chat"><button class="icon-btn" aria-label="Chat">💬</button></a>
+    <a href="#" title="Profile"><button class="icon-btn" aria-label="Profile">👤</button></a>
+    <a href="#" title="More"><button class="icon-btn" aria-label="More">⋯</button></a>
+  </div>
+
+  <header>
+    <div class="brand" aria-hidden="false">
+      <svg width="40" height="40" viewBox="0 0 100 100" aria-hidden="true">
+        <rect x="15" y="15" width="70" height="70" rx="8" fill="#000" transform="rotate(12 50 50)"/>
+        <text x="50" y="65" text-anchor="middle" font-size="40" font-family="Arial Black" fill="#fff" transform="rotate(12 50 50)">K</text>
+      </svg>
+      <span>KhanBlox</span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px">
+      <div id="greeting">👋 Welcome!</div>
+      <button id="themeBtn" class="theme-toggle" aria-pressed="false" title="Toggle theme">🌓 Theme</button>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Hero">
+    <h2>Welcome to KhanBlox</h2>
+    <p>Explore a virtual universe where you can create, play with friends, and bring your imagination to life.</p>
+  </section>
+
+  <main class="games" role="main" aria-live="polite">
+    <!-- Example game card: adapt links to your hosted game pages -->
+    <article class="game-card" role="article">
+      <div class="thumb" aria-hidden="true">
+        <!-- SVG thumbnail preserved -->
+        <svg width="200" height="120" viewBox="0 0 200 120" aria-hidden="true">
+          <rect width="200" height="120" fill="#1e1e1e"/>
+          <text x="100" y="16" font-size="12" text-anchor="middle" fill="#fff">Obby Rush</text>
+        </svg>
+      </div>
+      <div class="info">
+        <h3>Obby Rush</h3>
+        <div class="rating" aria-label="Rating">★★★★☆ — 3.3K playing</div>
+      </div>
+      <div class="actions">
+        <a href="https://lomov0.github.io/khanblox/obby-rush/" class="play-link" target="_blank" rel="noopener">
+          <button class="btn play" aria-label="Play Obby Rush">▶ Play</button>
+        </a>
+      </div>
+    </article>
+
+    <!-- Copy additional cards as needed, ensure target URLs are reachable -->
+  </main>
+
+  <footer>
+    © <span id="year"></span> KhanBlox — Built by lomov0
+  </footer>
+
+  <script>
+    // Hide loading screen after load + transition end
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        const L = document.getElementById('loading-screen');
+        L.classList.add('hidden');
+        L.addEventListener('transitionend', function(){ L.style.display = 'none'; }, {once:true});
+      }, 1200); // shorten to 1.2s so users don't wait too long
+    });
+
+    // Greeting by hour
+    (function(){
+      try{
+        const hour = new Date().getHours();
+        let greeting = '👋 Welcome!';
+        if(hour < 12) greeting = 'Good morning! 🌅';
+        else if(hour < 18) greeting = 'Good afternoon! ☀️';
+        else greeting = 'Good evening! 🌇';
+        document.getElementById('greeting').textContent = greeting;
+      }catch(e){}
+    })();
+
+    // Theme toggle: toggles light class on <html> for simplicity and persistence
+    (function(){
+      const btn = document.getElementById('themeBtn');
+      const root = document.documentElement;
+      const STORAGE_KEY = 'khanblox_theme';
+      function apply(theme){
+        if(theme === 'light') root.classList.add('light'); else root.classList.remove('light');
+        btn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+      }
+      // load
+      const saved = localStorage.getItem(STORAGE_KEY) || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      apply(saved === 'light' ? 'light' : 'dark');
+      btn.addEventListener('click', function(){
+        const isLight = root.classList.contains('light');
+        const next = isLight ? 'dark' : 'light';
+        apply(next);
+        localStorage.setItem(STORAGE_KEY, next);
+      });
+    })();
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Register basic service worker
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('/sw.js').catch(()=>{});
+    }
+  </script>
+</body>
+</html>
