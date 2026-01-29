@@ -8,15 +8,19 @@
 <meta name="keywords" content="KhanBlox, online games, game creation, play games, create games, gaming platform, v1.4.1">
 <meta name="author" content="lomov0">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lomov0.github.io/khanblox/README.md">
 <!-- Open Graph -->
 <meta property="og:title" content="KhanBlox v1.4.1 — Game Platform">
 <meta property="og:description" content="Create and play games online with KhanBlox v1.4.1">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://lomov0.github.io/khanblox/README.md">
+<meta property="og:image" content="https://lomov0.github.io/khanblox/og-image.svg">
 <meta property="og:site_name" content="KhanBlox">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="KhanBlox v1.4.1 — Game Platform">
 <meta name="twitter:description" content="Create and play games online with KhanBlox v1.4.1">
+<meta name="twitter:image" content="https://lomov0.github.io/khanblox/og-image.svg">
 <style>
   * { box-sizing: border-box; }
   body {

@@ -1,13 +1,3 @@
 User-agent: *
 Allow: /
 Sitemap: https://lomov0.github.io/khanblox/sitemap.xml
-
-# Allow common crawlers to access all content
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
