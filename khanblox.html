@@ -362,7 +362,6 @@ background: #ffffff;
 border-radius: 50%;
 display: inline-block;
 animation: bounce 0.6s infinite alternate;
-filter: blur(2px);
 }
 .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
 .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
@@ -378,7 +377,6 @@ pointer-events: none;
 margin-bottom: 20px;
 transform: translateY(-30px);
 animation: spin 4s linear infinite;
-filter: blur(2px);
 }
 @keyframes spin {
 from { transform: translateY(-30px) rotate(0deg); }
@@ -397,18 +395,6 @@ padding: 0;
 .icon-btn:hover {
 animation: pulse 0.6s infinite;
 }
-.dark-mode {
-background-color: #F2F3F3;
-color: #F2F3F3;
-}
-</style>
-<button onclick="toggleTheme()">🌓   ddddToggle Theme</button>
-<script>
-function toggleTheme() {
-document.body.classList.toggle('dark-mode');
-}
-</script>
-<style>
 .dark-mode {
 background-color: #F2F3F3;
 color: #F2F3F3;
@@ -437,7 +423,7 @@ transform="rotate(12 50 50)">K</text>
 window.addEventListener("load", function() {
 setTimeout(function() {
 document.getElementById("loading-screen").classList.add("hidden");
-}, 4000); // 4 seconds
+}, 1500); // 1.5 seconds - improved from 4s for better UX
 });
 </script>
 <body>
@@ -445,9 +431,9 @@ document.getElementById("loading-screen").classList.add("hidden");
 <script>
 var hour = new Date().getHours();
 var greeting = "👋 Welcome!";
-if (hour < 12) greeting = "iiiiiiiiiijkkGood morning!🌅";
-else if (hour < 18) greeting = "iiiiiiiiiijkkGood afternoon!☀️";
-else greeting = "iiiiiiiiiijkkGood evening!🌇";
+if (hour < 12) greeting = "Good morning! 🌅";
+else if (hour < 18) greeting = "Good afternoon! ☀️";
+else greeting = "Good evening! 🌇";
 document.getElementById("greeting").textContent = greeting;
 </script>
 <div class="sidebar">
@@ -807,12 +793,12 @@ transform="rotate(12 50 50)">K</text>
 <svg width="200" height="120" viewBox="0 0 200 120">
 <!-- Sunset Sky -->
 <defs>
-<linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="sunset1" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="#f39c12"/>
 <stop offset="100%" stop-color="#1c1c1c"/>
 </linearGradient>
 </defs>
-<rect width="200" height="120" fill="url(#sunset)"/>
+<rect width="200" height="120" fill="url(#sunset1)"/>
 <!-- Jail Building -->
 <rect x="10" y="40" width="50" height="50" fill="#2c3e50"/>
 <text x="35" y="60" font-size="10" text-anchor="middle" fill="#ecf0f1">JAIL</text>
@@ -912,7 +898,7 @@ transform="rotate(12 50 50)">K</text>
 <svg width="200" height="120" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <!-- Sky gradient -->
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="#7ec8ff"/>
 <stop offset="60%" stop-color="#bfe9ff"/>
 <stop offset="100%" stop-color="#eaf7ff"/>
@@ -995,7 +981,7 @@ transform="rotate(12 50 50)">K</text>
 </filter>
 </defs>
 <!-- Background sky -->
-<rect width="200" height="120" rx="10" fill="url(#sky)"/>
+<rect width="200" height="120" rx="10" fill="url(#sky1)"/>
 <!-- Sun -->
 <circle cx="30" cy="20" r="12" fill="#ffd46b"/>
 <circle cx="30" cy="20" r="25" fill="url(#sunGlow)"/>
@@ -1172,7 +1158,7 @@ Speed Simulator X
 <stop offset="100%" stop-color="#95a5a6"/>
 </linearGradient>
 <!-- Glow filter -->
-<filter id="glow" x="0" y="0" width="200" height="140" filterUnits="userSpaceOnUse">
+<filter id="glow1" x="0" y="0" width="200" height="140" filterUnits="userSpaceOnUse">
 <feGaussianBlur stdDeviation="1.5" result="blur"/>
 <feMerge>
 <feMergeNode in="blur"/>
@@ -1195,8 +1181,8 @@ Speed Simulator X
 </g>
 <!-- Piggy Head -->
 <circle cx="120" cy="60" r="30" fill="url(#piggySkin)" stroke="#e57399" stroke-width="2"/>
-<circle cx="108" cy="55" r="6" fill="#ff1744" filter="url(#glow)"/>
-<circle cx="132" cy="55" r="6" fill="#ff1744" filter="url(#glow)"/>
+<circle cx="108" cy="55" r="6" fill="#ff1744" filter="url(#glow1)"/>
+<circle cx="132" cy="55" r="6" fill="#ff1744" filter="url(#glow1)"/>
 <circle cx="120" cy="70" r="4" fill="#c2185b"/>
 <path d="M104 50 L112 52" stroke="#000" stroke-width="2"/>
 <path d="M128 52 L136 50" stroke="#000" stroke-width="2"/>
@@ -1213,7 +1199,7 @@ Speed Simulator X
 <polygon points="156,40 180,30 180,50 156,50" fill="url(#blade)" stroke="#78909c" stroke-width="1"/>
 <line x1="180" y1="30" x2="180" y2="50" stroke="#78909c" stroke-width="2"/>
 <!-- Stylized danger stains -->
-<g filter="url(#glow)">
+<g filter="url(#glow1)">
 <circle cx="165" cy="45" r="4" fill="#e74c3c" opacity="0.9"/>
 <circle cx="170" cy="47" r="2.5" fill="#c0392b" opacity="0.8"/>
 <circle cx="162" cy="50" r="2" fill="#b71c1c" opacity="0.7"/>
@@ -1242,7 +1228,7 @@ fill="#b71c1c" opacity="0.8"/>
 <svg width="200" height="120" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <!-- Background gradient -->
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="bg1" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="#fff5d6"/>
 <stop offset="100%" stop-color="#ffeaa7"/>
 </linearGradient>
@@ -1262,7 +1248,7 @@ fill="#b71c1c" opacity="0.8"/>
 <stop offset="100%" stop-color="#f8c471"/>
 </linearGradient>
 <!-- Glow filter contained -->
-<filter id="glow" x="0" y="0" width="200" height="120" filterUnits="userSpaceOnUse">
+<filter id="glow2" x="0" y="0" width="200" height="120" filterUnits="userSpaceOnUse">
 <feGaussianBlur stdDeviation="1.5" result="blur"/>
 <feMerge>
 <feMergeNode in="blur"/>
@@ -1271,7 +1257,7 @@ fill="#b71c1c" opacity="0.8"/>
 </filter>
 </defs>
 <!-- Background -->
-<rect width="200" height="120" fill="url(#bg)"/>
+<rect width="200" height="120" fill="url(#bg1)"/>
 <!-- Tiled Wall -->
 <rect x="0" y="0" width="200" height="60" fill="url(#wall)"/>
 <line x1="0" y1="20" x2="200" y2="20" stroke="#d89b5c" stroke-width="1"/>
@@ -1282,7 +1268,7 @@ fill="#b71c1c" opacity="0.8"/>
 <!-- Countertop -->
 <rect x="0" y="60" width="200" height="20" fill="#d35400"/>
 <!-- Pizza Box -->
-<rect x="70" y="65" width="60" height="40" rx="4" fill="url(#box)" filter="url(#glow)"/>
+<rect x="70" y="65" width="60" height="40" rx="4" fill="url(#box)" filter="url(#glow2)"/>
 <text x="100" y="85" font-size="10" text-anchor="middle" fill="#ffffff" font-weight="bold">Hot Pizza</text>
 <!-- Pizza Slice -->
 <polygon points="100,60 120,100 80,100" fill="url(#slice)" stroke="#d35400" stroke-width="1"/>
@@ -1533,7 +1519,7 @@ fill="#b71c1c" opacity="0.8"/>
 <svg width="200" height="140" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <!-- Background gradient -->
-<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="#0d0d0d"/>
 <stop offset="100%" stop-color="#1c1c1c"/>
 </linearGradient>
@@ -1563,7 +1549,7 @@ fill="#b71c1c" opacity="0.8"/>
 </filter>
 </defs>
 <!-- Background -->
-<rect width="200" height="140" fill="url(#bg)" rx="10"/>
+<rect width="200" height="140" fill="url(#bg2)" rx="10"/>
 <!-- Door -->
 <rect x="70" y="30" width="60" height="80" rx="6" fill="url(#doorWood)" stroke="#3e1f0d" stroke-width="3" filter="url(#shadow)"/>
 <!-- Panels -->
@@ -1600,7 +1586,7 @@ Doors
 <svg width="200" height="120" viewBox="0 0 200 120" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <!-- Sky gradient (lighter blue) -->
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="#b3e5fc"/> <!-- Light blue top -->
 <stop offset="100%" stop-color="#eaf6fb"/> <!-- Very pale blue bottom -->
 </linearGradient>
@@ -1630,7 +1616,7 @@ Doors
 <stop offset="100%" stop-color="#e74c3c"/>
 </linearGradient>
 <!-- Glow filter -->
-<filter id="glow" x="0" y="0" width="200" height="120" filterUnits="userSpaceOnUse">
+<filter id="glow3" x="0" y="0" width="200" height="120" filterUnits="userSpaceOnUse">
 <feGaussianBlur stdDeviation="1.5" result="blur"/>
 <feMerge>
 <feMergeNode in="blur"/>
@@ -1639,15 +1625,15 @@ Doors
 </filter>
 </defs>
 <!-- Background -->
-<rect width="200" height="120" fill="url(#sky)"/>
+<rect width="200" height="120" fill="url(#sky2)"/>
 <!-- Ground -->
 <rect y="90" width="200" height="30" fill="url(#ground)"/>
 <!-- House -->
 <rect x="60" y="50" width="80" height="40" rx="6" fill="url(#houseWall)" stroke="#1f4e79" stroke-width="2"/>
 <polygon points="60,50 100,30 140,50" fill="url(#roof)" stroke="#154360" stroke-width="2"/>
 <!-- Windows glowing -->
-<rect x="70" y="60" width="15" height="15" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" filter="url(#glow)"/>
-<rect x="115" y="60" width="15" height="15" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" filter="url(#glow)"/>
+<rect x="70" y="60" width="15" height="15" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" filter="url(#glow3)"/>
+<rect x="115" y="60" width="15" height="15" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1" filter="url(#glow3)"/>
 <!-- Door -->
 <rect x="95" y="65" width="10" height="25" fill="#2ecc71" stroke="#1e8449" stroke-width="1"/>
 <!-- Tree -->
@@ -1658,8 +1644,8 @@ Doors
 <circle cx="155" cy="97" r="4" fill="#2c3e50"/>
 <circle cx="175" cy="97" r="4" fill="#2c3e50"/>
 <!-- Headlights -->
-<circle cx="150" cy="90" r="2" fill="#f7dc6f" filter="url(#glow)"/>
-<circle cx="180" cy="90" r="2" fill="#f7dc6f" filter="url(#glow)"/>
+<circle cx="150" cy="90" r="2" fill="#f7dc6f" filter="url(#glow3)"/>
+<circle cx="180" cy="90" r="2" fill="#f7dc6f" filter="url(#glow3)"/>
 <!-- Label -->
 <text x="100" y="115" font-size="12" text-anchor="middle" fill="#2c3e50" font-weight="bold">Brookhaven RP</text>
 </svg>
@@ -1737,7 +1723,7 @@ Doors
 <svg width="200" height="120" viewBox="0 0 200 120">
 <!-- Sky Gradient -->
 <defs>
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1">
   <stop offset="0%" stop-color="#ffeaa7"/>
   <stop offset="60%" stop-color="#fdf1c2"/>
   <stop offset="100%" stop-color="#dff9fb"/>
@@ -1750,17 +1736,17 @@ Doors
 </linearGradient>
 
 <!-- Sun Glow -->
-<radialGradient id="sunGlow">
+<radialGradient id="sunGlow1">
   <stop offset="0%" stop-color="#f6e58d" />
   <stop offset="100%" stop-color="#f6e58d" stop-opacity="0" />
 </radialGradient>
 </defs>
 
 <!-- Background Sky -->
-<rect width="200" height="120" fill="url(#sky)"/>
+<rect width="200" height="120" fill="url(#sky3)"/>
 
 <!-- Sun Glow -->
-<circle cx="170" cy="30" r="25" fill="url(#sunGlow)" opacity="0.6"/>
+<circle cx="170" cy="30" r="25" fill="url(#sunGlow1)" opacity="0.6"/>
 <!-- Sun -->
 <circle cx="170" cy="30" r="12" fill="#f6e58d" stroke="#f9ca24" stroke-width="2"/>
 
@@ -1976,12 +1962,12 @@ Doors
 <svg width="200" height="120" viewBox="0 0 200 120">
 <!-- Sunset Sky -->
 <defs>
-<linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="sunset2" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="#f39c12"/>
 <stop offset="100%" stop-color="#1c1c1c"/>
 </linearGradient>
 </defs>
-<rect width="200" height="120" fill="url(#sunset)"/>
+<rect width="200" height="120" fill="url(#sunset2)"/>
 <!-- Jail Building -->
 <rect x="10" y="40" width="50" height="50" fill="#2c3e50"/>
 <text x="35" y="60" font-size="10" text-anchor="middle" fill="#ecf0f1">JAIL</text>
@@ -2277,12 +2263,12 @@ Doors
 <svg width="200" height="120" viewBox="0 0 200 120">
 <!-- Sky Gradient -->
 <defs>
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1">
 <stop offset="0%" stop-color="#a3d5ff"/>
 <stop offset="100%" stop-color="#ecf0f1"/>
 </linearGradient>
 </defs>
-<rect width="200" height="120" fill="url(#sky)"/>
+<rect width="200" height="120" fill="url(#sky4)"/>
 <!-- Ground -->
 <rect y="90" width="200" height="30" fill="#bdc3c7"/>
 <!-- House -->
@@ -2317,38 +2303,38 @@ Doors
 <svg width="200" height="120" viewBox="0 0 200 120">
 <!-- Sky Gradient -->
 <defs>
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+<linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1">
   <stop offset="0%" stop-color="#ffeaa7"/>
   <stop offset="60%" stop-color="#fdf1c2"/>
   <stop offset="100%" stop-color="#dff9fb"/>
 </linearGradient>
 
 <!-- Cloud Gradient -->
-<linearGradient id="cloud" x1="0" y1="0" x2="1" y2="1">
+<linearGradient id="cloud1" x1="0" y1="0" x2="1" y2="1">
   <stop offset="0%" stop-color="#ffffff" opacity="0.9"/>
   <stop offset="100%" stop-color="#ffffff" opacity="0.4"/>
 </linearGradient>
 
 <!-- Sun Glow -->
-<radialGradient id="sunGlow">
+<radialGradient id="sunGlow2">
   <stop offset="0%" stop-color="#f6e58d" />
   <stop offset="100%" stop-color="#f6e58d" stop-opacity="0" />
 </radialGradient>
 </defs>
 
 <!-- Background Sky -->
-<rect width="200" height="120" fill="url(#sky)"/>
+<rect width="200" height="120" fill="url(#sky5)"/>
 
 <!-- Sun Glow -->
-<circle cx="170" cy="30" r="25" fill="url(#sunGlow)" opacity="0.6"/>
+<circle cx="170" cy="30" r="25" fill="url(#sunGlow2)" opacity="0.6"/>
 <!-- Sun -->
 <circle cx="170" cy="30" r="12" fill="#f6e58d" stroke="#f9ca24" stroke-width="2"/>
 
 <!-- Clouds -->
-<ellipse cx="40" cy="25" rx="18" ry="8" fill="url(#cloud)"/>
-<ellipse cx="55" cy="28" rx="14" ry="6" fill="url(#cloud)"/>
-<ellipse cx="130" cy="20" rx="20" ry="9" fill="url(#cloud)"/>
-<ellipse cx="145" cy="23" rx="15" ry="7" fill="url(#cloud)"/>
+<ellipse cx="40" cy="25" rx="18" ry="8" fill="url(#cloud1)"/>
+<ellipse cx="55" cy="28" rx="14" ry="6" fill="url(#cloud1)"/>
+<ellipse cx="130" cy="20" rx="20" ry="9" fill="url(#cloud1)"/>
+<ellipse cx="145" cy="23" rx="15" ry="7" fill="url(#cloud1)"/>
 
 <!-- Ocean Base -->
 <rect y="80" width="200" height="40" fill="#74b9ff"/>
