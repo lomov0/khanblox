@@ -9,6 +9,8 @@ jobs:
   validate:
     name: Validate Changes
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout code
@@ -88,6 +90,8 @@ jobs:
   pr-info:
     name: PR Information
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout code
