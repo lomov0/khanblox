@@ -32,14 +32,20 @@ self.addEventListener('activate', event => {
 
 // Fetch event - network first, fall back to cache
 self.addEventListener('fetch', event => {
+  // Only cache GET requests
+  if (event.request.method !== 'GET') return;
+  
   event.respondWith(
     fetch(event.request)
       .then(response => {
-        // Clone the response before caching
-        const responseClone = response.clone();
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, responseClone);
-        });
+        // Only cache successful responses
+        if (response.status === 200 && (response.type === 'basic' || response.type === 'cors')) {
+          // Clone the response before caching
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseClone);
+          }).catch(err => console.warn('Failed to cache:', event.request.url, err));
+        }
         return response;
       })
       .catch(() => caches.match(event.request))
