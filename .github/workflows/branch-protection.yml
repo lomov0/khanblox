@@ -1,0 +1,119 @@
+name: Branch Protection
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validate Changes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Validate HTML files
+        run: |
+          echo "Validating HTML files..."
+          
+          # Check for basic HTML structure in HTML files
+          for file in *.html; do
+            if [ -f "$file" ]; then
+              echo "Checking $file..."
+              
+              # Check if file contains DOCTYPE
+              if ! grep -q "<!DOCTYPE" "$file"; then
+                echo "⚠️  Warning: $file missing DOCTYPE declaration"
+              fi
+              
+              # Check if file contains html tag
+              if ! grep -q "<html" "$file"; then
+                echo "❌ Error: $file missing <html> tag"
+                exit 1
+              fi
+              
+              # Check if file contains head tag
+              if ! grep -q "<head" "$file"; then
+                echo "❌ Error: $file missing <head> tag"
+                exit 1
+              fi
+              
+              # Check if file contains body tag
+              if ! grep -q "<body" "$file"; then
+                echo "❌ Error: $file missing <body> tag"
+                exit 1
+              fi
+              
+              echo "✅ $file is valid"
+            fi
+          done
+          
+          echo "All HTML files validated successfully!"
+          
+      - name: Check for common issues
+        run: |
+          echo "Checking for common issues..."
+          
+          # Check for console.log statements (optional warning)
+          if grep -r "console\.log" *.html *.js 2>/dev/null; then
+            echo "⚠️  Warning: Found console.log statements. Consider removing for production."
+          fi
+          
+          # Check for TODO/FIXME comments
+          if grep -ri "TODO\|FIXME" *.html *.js 2>/dev/null; then
+            echo "⚠️  Warning: Found TODO/FIXME comments"
+          fi
+          
+          echo "✅ Checks completed"
+          
+      - name: Validate required files
+        run: |
+          echo "Checking for required files..."
+          
+          required_files=("LICENSE" "README.md" "NOTICE" "TRADEMARKS.md")
+          
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "❌ Error: Required file $file is missing"
+              exit 1
+            else
+              echo "✅ $file exists"
+            fi
+          done
+          
+          echo "All required files present!"
+
+  pr-info:
+    name: PR Information
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Show PR stats
+        run: |
+          echo "📊 Pull Request Statistics"
+          echo "=========================="
+          
+          # Count files changed
+          files_changed=$(git diff --name-only origin/main...HEAD 2>/dev/null | wc -l || echo "0")
+          echo "Files changed: $files_changed"
+          
+          # Show which files changed
+          echo ""
+          echo "Modified files:"
+          git diff --name-only origin/main...HEAD 2>/dev/null || echo "Unable to determine changed files"
+          
+          # Count lines added/removed
+          echo ""
+          echo "Lines changed:"
+          git diff --stat origin/main...HEAD 2>/dev/null || echo "Unable to determine line changes"

@@ -1,0 +1,18 @@
+# CODEOWNERS file for KhanBlox repository
+# This file defines individuals or teams that are responsible for code in this repository.
+# When a pull request is opened, the code owners are automatically requested for review.
+
+# Default owners for everything in the repo
+* @lomov0
+
+# HTML files - require review for any HTML changes
+*.html @lomov0
+
+# Configuration and documentation files
+*.md @lomov0
+LICENSE @lomov0
+NOTICE @lomov0
+TRADEMARKS.md @lomov0
+
+# GitHub workflows - require review for workflow changes
+/.github/ @lomov0
