@@ -33,7 +33,7 @@ X-Frame-Options: SAMEORIGIN
 ```
 
 ### 5. X-XSS-Protection
-Enables browser XSS filter
+**Note: This header is deprecated.** Modern browsers have removed support for X-XSS-Protection in favor of Content-Security-Policy. Only include this for legacy browser support.
 ```
 X-XSS-Protection: 1; mode=block
 ```
