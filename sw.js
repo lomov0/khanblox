@@ -1,19 +1,22 @@
 const CACHE_NAME = 'khanblox-v2';
 const CORE_ASSETS = [
-  '/khanblox/',
-  '/khanblox/index.html',
-  '/khanblox/khanblox.html',
-  '/khanblox/og-image.svg',
-  '/khanblox/manifest.webmanifest'
+  './',
+  './index.html',
+  './khanblox.html',
+  './og-image.svg',
+  './manifest.webmanifest'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(CORE_ASSETS))
-      .catch(err => console.error('Cache install failed:', err))
+      .then(() => self.skipWaiting())
+      .catch(err => {
+        console.error('Cache install failed:', err);
+        throw err; // Prevent service worker from activating if caching fails
+      })
   );
-  self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
@@ -33,10 +36,18 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
-      .then(resp => resp || fetch(event.request))
-      .catch(err => {
-        console.error('Fetch failed:', err);
-        throw err;
+      .then(resp => {
+        if (resp) {
+          return resp;
+        }
+        return fetch(event.request).catch(err => {
+          console.error('Fetch failed for:', event.request.url, err);
+          // Return a basic offline response for navigation requests
+          if (event.request.mode === 'navigate') {
+            return caches.match('./index.html');
+          }
+          throw err;
+        });
       })
   );
 });

@@ -404,7 +404,9 @@ background-color: #F2F3F3;
 color: #F2F3F3;
 }
 </style>
-<button onclick="toggleTheme()">🌓 Toggle Theme</button>
+</head>
+<body>
+<button onclick="toggleTheme()" style="position: fixed; top: 10px; right: 10px; z-index: 10000; padding: 8px 12px; background: #1f1f1f; color: #fff; border: 1px solid #444; border-radius: 6px; cursor: pointer;">🌓 Toggle Theme</button>
 <script>
 function toggleTheme() {
   try {
@@ -414,14 +416,6 @@ function toggleTheme() {
   }
 }
 </script>
-<style>
-.dark-mode {
-background-color: #F2F3F3;
-color: #F2F3F3;
-}
-</style>
-</head>
-<body>
 <div id="loading-screen">
 <div class="logo-rotate">
 <!-- Tilted Khanblox square K logo -->
