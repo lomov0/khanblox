@@ -389,6 +389,8 @@ to {
 opacity: 0;
 visibility: hidden;
 }
+}
+
 html, body {
 height: 100%;
 margin: 0;
@@ -397,24 +399,32 @@ padding: 0;
 .icon-btn:hover {
 animation: pulse 0.6s infinite;
 }
-.dark-mode {
-background-color: #F2F3F3;
-color: #F2F3F3;
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
-</style>
-<button onclick="toggleTheme()">🌓   ddddToggle Theme</button>
-<script>
-function toggleTheme() {
-document.body.classList.toggle('dark-mode');
-}
-</script>
-<style>
+
 .dark-mode {
-background-color: #F2F3F3;
-color: #F2F3F3;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
 }
 </style>
 </head>
+
+<body>
+
+
+<div id="greeting"></div>
+<script>
+var hour = new Date().getHours();
+var greeting = "👋 Welcome!";
+if (hour < 12) greeting = "Good morning!🌅";
+else if (hour < 18) greeting = "Good afternoon!☀️";
+else greeting = "Good evening!🌇";
+document.getElementById("greeting").textContent = greeting;
+</script>
+
 <div id="loading-screen">
 <div class="logo-rotate">
 <!-- Tilted Khanblox square K logo -->
@@ -440,19 +450,9 @@ document.getElementById("loading-screen").classList.add("hidden");
 }, 4000); // 4 seconds
 });
 </script>
-<body>
-<div id="greeting"></div>
-<script>
-var hour = new Date().getHours();
-var greeting = "👋 Welcome!";
-if (hour < 12) greeting = "iiiiiiiiiijkkGood morning!🌅";
-else if (hour < 18) greeting = "iiiiiiiiiijkkGood afternoon!☀️";
-else greeting = "iiiiiiiiiijkkGood evening!🌇";
-document.getElementById("greeting").textContent = greeting;
-</script>
 <div class="sidebar">
 <!-- Create -->
-<a href="canva.com" target="_blank" title="Create your own game">
+<a href="https://www.canva.com" target="_blank" rel="noopener noreferrer" title="Create your own game">
 <button class="icon-btn">
 <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <!-- Circle -->
@@ -470,7 +470,7 @@ stroke-linecap="round"/>
 </a>
 <!-- Games -->
 <a href="https://lomov0.github.io/khanblox/"
-target="_blank"
+target="_blank" rel="noopener noreferrer"
 title="Games">
 <button class="icon-btn">
 <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -489,7 +489,7 @@ stroke-linejoin="round"/>
 </button>
 </a>
 <!-- Chat -->
-<a href="https://www.canva.com/design/DAGycvpO8Zw/_JZYg2I4B7NZ8Cxs-GVDQQ/edit?utm_content=DAGycvpO8Zw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" title="Chat">
+<a href="https://www.canva.com/design/DAGycvpO8Zw/_JZYg2I4B7NZ8Cxs-GVDQQ/edit?utm_content=DAGycvpO8Zw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer" title="Chat">
 <button class="icon-btn">
 <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <!-- Chat bubble -->
@@ -525,7 +525,7 @@ stroke-linecap="round"/>
 </button>
 </a>
 <!-- Profile -->
-<a href="canva.com" target="_blank" title="Profile">
+<a href="https://www.canva.com" target="_blank" rel="noopener noreferrer" title="Profile">
 <button class="icon-btn">
 <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <!-- Head -->
@@ -546,7 +546,7 @@ stroke-linecap="round"/>
 </a>
 <!-- Updates & Community Standards -->
 <a href="https://www.canva.com/design/DAG6-zp9kqM/XPTwG8gQ3QmZkfcQyZmZWA/edit?utm_content=DAG6-zp9kqM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-target="_blank"
+target="_blank" rel="noopener noreferrer"
 title="Updates & Community Standards">
 <button class="icon-btn" style="margin-top:8px; margin-bottom:8px;">
 <svg width="29" height="29" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="padding:4px;">
@@ -587,7 +587,7 @@ stroke-linecap="round"/>
 </button>
 </a>
 <!-- More -->
-<a href="https://lomov0.github.io/khanblox/" target="_blank" title="More">
+<a href="https://lomov0.github.io/khanblox/" target="_blank" rel="noopener noreferrer" title="More">
 <button class="icon-btn">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="#ccc" xmlns="http://www.w3.org/2000/svg">
 <circle cx="5" cy="12" r="2"/>
@@ -672,7 +672,7 @@ transform="rotate(12 50 50)">K</text>
 </div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyWNNmBn0/dsvVIseRhjRmBYbRz8jqqQ/edit?utm_content=DAGyWNNmBn0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyWNNmBn0/dsvVIseRhjRmBYbRz8jqqQ/edit?utm_content=DAGyWNNmBn0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -733,7 +733,7 @@ transform="rotate(12 50 50)">K</text>
 </div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyWRMmhIo/H5Ea6D-qqBGXvJ47lP3rWQ/edit?utm_content=DAGyWRMmhIo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyWRMmhIo/H5Ea6D-qqBGXvJ47lP3rWQ/edit?utm_content=DAGyWRMmhIo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -796,7 +796,7 @@ transform="rotate(12 50 50)">K</text>
 </div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyWSDG5Bc/GKI0tjmmDM7de0nj_TjO-w/edit?utm_content=DAGyWSDG5Bc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyWSDG5Bc/GKI0tjmmDM7de0nj_TjO-w/edit?utm_content=DAGyWSDG5Bc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -849,7 +849,7 @@ transform="rotate(12 50 50)">K</text>
 <div class="rating">★ ★ ★ ★ ★ 👤5.4K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGycjSDIJY/r8X4URisFdox-eGgIscL9w/edit?utm_content=DAGycjSDIJY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGycjSDIJY/r8X4URisFdox-eGgIscL9w/edit?utm_content=DAGycjSDIJY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -902,7 +902,7 @@ transform="rotate(12 50 50)">K</text>
 <div class="rating">★ ★ ★ ★ ☆ 👤3.4K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGy8S1GQkU/xONg5pgNEDITY-spxAr_hw/edit?utm_content=DAGy8S1GQkU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGy8S1GQkU/xONg5pgNEDITY-spxAr_hw/edit?utm_content=DAGy8S1GQkU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1111,7 +1111,7 @@ Speed Simulator X
 <div class="rating">★ ★ ★ ★ ☆ 👤3.8K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyoU8ikro/7bJXK0GWqHm0YNGkEA_qNg/edit?utm_content=DAGyoU8ikro&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyoU8ikro/7bJXK0GWqHm0YNGkEA_qNg/edit?utm_content=DAGyoU8ikro&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1142,7 +1142,7 @@ Speed Simulator X
 <div class="rating">★ ★ ★ ☆  ☆ 👤2.3K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyjOBHims/j_c-URLHcxXtukKP34s-UA/edit?utm_content=DAGyjOBHims&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyjOBHims/j_c-URLHcxXtukKP34s-UA/edit?utm_content=DAGyjOBHims&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1231,7 +1231,7 @@ fill="#b71c1c" opacity="0.8"/>
 <div class="rating">★ ★ ★ ★ ★ 👤5.1k playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyiWYOUfM/AqNuYqqgNu-SyQ9FRChrKg/edit?utm_content=DAGyiWYOUfM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyiWYOUfM/AqNuYqqgNu-SyQ9FRChrKg/edit?utm_content=DAGyiWYOUfM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1303,7 +1303,7 @@ fill="#b71c1c" opacity="0.8"/>
 <div class="rating">★ ★ ★ ★ ★ 👤2.9K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGycRcPdLU/hMOGI-Sva4iqbfBt_pOM8w/edit?utm_content=DAGycRcPdLU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGycRcPdLU/hMOGI-Sva4iqbfBt_pOM8w/edit?utm_content=DAGycRcPdLU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1390,7 +1390,7 @@ fill="#b71c1c" opacity="0.8"/>
   </div>
 
   <div class="actions">
-    <a href="https://www.canva.com/design/DAG_kBKeI60/1n72nLPREb5FktAoKAr4Tw/edit?utm_content=DAG_kBKeI60&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+    <a href="https://www.canva.com/design/DAG_kBKeI60/1n72nLPREb5FktAoKAr4Tw/edit?utm_content=DAG_kBKeI60&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
       <button class="btn">▶ Play</button>
     </a>
   </div>
@@ -1444,7 +1444,7 @@ fill="#b71c1c" opacity="0.8"/>
 <div class="rating">★ ★ ★ ★ ☆ 👤4K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGy2K0Zrjw/8wnmDGS5hODrP9binHZQbA/edit?utm_content=DAGy2K0Zrjw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGy2K0Zrjw/8wnmDGS5hODrP9binHZQbA/edit?utm_content=DAGy2K0Zrjw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1486,7 +1486,7 @@ fill="#b71c1c" opacity="0.8"/>
 <div class="rating">★ ★ ★ ★ ☆ 👤4.9K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyurkBpbE/9o1A-ByXClf308YGhBFVXw/edit?utm_content=DAGyurkBpbE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyurkBpbE/9o1A-ByXClf308YGhBFVXw/edit?utm_content=DAGyurkBpbE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1523,7 +1523,7 @@ fill="#b71c1c" opacity="0.8"/>
 <div class="rating">★ ★ ★ ★ ☆ 👤4.7K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.khanacademy.org/computer-programming/bee-swarm-simulator/5493611411324928" target="_blank">
+<a href="https://www.khanacademy.org/computer-programming/bee-swarm-simulator/5493611411324928" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1589,7 +1589,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ☆ 👤3.8K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyh69M3sc/Nbtiv8JNgemlNAQRI--vdg/edit?utm_content=DAGyh69M3sc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyh69M3sc/Nbtiv8JNgemlNAQRI--vdg/edit?utm_content=DAGyh69M3sc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1669,7 +1669,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ☆ 👤4.8K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGycDWhFow/naQ0E73SftjGERCRXFqRoA/edit?utm_content=DAGycDWhFow&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGycDWhFow/naQ0E73SftjGERCRXFqRoA/edit?utm_content=DAGycDWhFow&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1727,7 +1727,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ★ 👤4.6K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyop2pmmc/bm1o7_r88Evob0tIUk_TCA/edit?utm_content=DAGyop2pmmc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyop2pmmc/bm1o7_r88Evob0tIUk_TCA/edit?utm_content=DAGyop2pmmc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1818,7 +1818,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ★ 👤3.2K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyeXxaFFw/HcS8wAQ3n1ilsEuxgPwBlQ/edit?utm_content=DAGyeXxaFFw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyeXxaFFw/HcS8wAQ3n1ilsEuxgPwBlQ/edit?utm_content=DAGyeXxaFFw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1855,7 +1855,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ☆ 👤2.1K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGy2fJxuws/dQft27Np3PGZKeFkslnAcQ/edit?utm_content=DAGy2fJxuws&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGy2fJxuws/dQft27Np3PGZKeFkslnAcQ/edit?utm_content=DAGy2fJxuws&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1902,7 +1902,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ★ 👤4.5K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAG7QtVHvaQ/5MKHpWw4dRL0rlXiG3MLlA/edit?utm_content=DAG7QtVHvaQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAG7QtVHvaQ/5MKHpWw4dRL0rlXiG3MLlA/edit?utm_content=DAG7QtVHvaQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -1965,7 +1965,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ☆ 👤6.2K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyh4rB_Mc/M8v41b-bWQqOnVV1_MIdhw/edit?utm_content=DAGyh4rB_Mc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyh4rB_Mc/M8v41b-bWQqOnVV1_MIdhw/edit?utm_content=DAGyh4rB_Mc&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -2018,7 +2018,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ★ 👤 5.4K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGycjSDIJY/r8X4URisFdox-eGgIscL9w/edit?utm_content=DAGycjSDIJY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGycjSDIJY/r8X4URisFdox-eGgIscL9w/edit?utm_content=DAGycjSDIJY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -2064,7 +2064,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ★ 👤5.1k playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyiWYOUfM/AqNuYqqgNu-SyQ9FRChrKg/edit?utm_content=DAGyiWYOUfM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyiWYOUfM/AqNuYqqgNu-SyQ9FRChrKg/edit?utm_content=DAGyiWYOUfM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -2103,7 +2103,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ☆ 👤4.4K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyeRZd97I/KpFRvnNOv8mbMkhHT9bGRg/edit?utm_content=DAGyeRZd97I&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyeRZd97I/KpFRvnNOv8mbMkhHT9bGRg/edit?utm_content=DAGyeRZd97I&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -2145,7 +2145,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ★ 👤2.9K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGycRcPdLU/hMOGI-Sva4iqbfBt_pOM8w/edit?utm_content=DAGycRcPdLU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGycRcPdLU/hMOGI-Sva4iqbfBt_pOM8w/edit?utm_content=DAGycRcPdLU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -2215,7 +2215,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ☆ 👤2.6K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyn8mlJF4/OklHJNESAhFfpa2RLd_thg/edit?utm_content=DAGyn8mlJF4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyn8mlJF4/OklHJNESAhFfpa2RLd_thg/edit?utm_content=DAGyn8mlJF4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -2266,7 +2266,7 @@ Doors
 <div class="rating">★ ★ ★ ☆ ☆ 👤3.8K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGywqsQbxM/eQ05Km4RQ8a1sh2BCiSkjg/edit?utm_content=DAGywqsQbxM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGywqsQbxM/eQ05Km4RQ8a1sh2BCiSkjg/edit?utm_content=DAGywqsQbxM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -2307,7 +2307,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ☆ 👤4.8k playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGycDWhFow/naQ0E73SftjGERCRXFqRoA/edit?utm_content=DAGycDWhFow&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGycDWhFow/naQ0E73SftjGERCRXFqRoA/edit?utm_content=DAGycDWhFow&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
@@ -2398,7 +2398,7 @@ Doors
 <div class="rating">★ ★ ★ ★ ★ 👤   3.2K playing</div>
 </div>
 <div class="actions">
-<a href="https://www.canva.com/design/DAGyeXxaFFw/HcS8wAQ3n1ilsEuxgPwBlQ/edit?utm_content=DAGyeXxaFFw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+<a href="https://www.canva.com/design/DAGyeXxaFFw/HcS8wAQ3n1ilsEuxgPwBlQ/edit?utm_content=DAGyeXxaFFw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" rel="noopener noreferrer">
 <button class="btn">▶ Play</button>
 </a>
 </div>
