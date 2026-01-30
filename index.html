@@ -3,18 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KhanBlox — Create & Play</title>
-  <meta name="description" content="KhanBlox — create games, play with friends, and explore community-made experiences." />
+  <title>KhanBlox — Create, Play & Share Games Online</title>
+  <meta name="description" content="KhanBlox is a free web-based gaming platform where you can create your own games, play community creations, and share with friends. Start building today!" />
+  <meta name="keywords" content="khanblox, game creation, online games, free games, create games, play games, game platform, browser games, web games, game maker" />
+  <meta name="author" content="Leonel Omovie" />
   <link rel="canonical" href="https://lomov0.github.io/khanblox/" />
-  <!-- Open Graph + Twitter Card -->
-  <meta property="og:title" content="KhanBlox — Create & Play" />
-  <meta property="og:description" content="Create games, play with friends, and explore community-made experiences." />
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lomov0.github.io/khanblox/" />
+  <meta property="og:title" content="KhanBlox — Create, Play & Share Games Online" />
+  <meta property="og:description" content="Join KhanBlox to create games, play with friends, and explore thousands of community-made experiences. Free and accessible on any device!" />
   <meta property="og:image" content="https://lomov0.github.io/khanblox/og-image.svg" />
+  <meta property="og:image:alt" content="KhanBlox - Gaming Platform" />
+  <meta property="og:site_name" content="KhanBlox" />
+  
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://lomov0.github.io/khanblox/" />
+  <meta name="twitter:title" content="KhanBlox — Create, Play & Share Games Online" />
+  <meta name="twitter:description" content="Join KhanBlox to create games, play with friends, and explore community-made experiences!" />
+  <meta name="twitter:image" content="https://lomov0.github.io/khanblox/og-image.svg" />
+  
   <meta name="theme-color" content="#151515" />
-  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="manifest" href="manifest.webmanifest">
   <style>
     :root{
       --bg:#121212; --panel:#1f1f1f; --muted:#aaaaaa; --accent:#00b06b; --btn:#007bff; --text:#ffffff;
@@ -43,6 +55,41 @@
     .btn{background:var(--btn);color:#fff;border:0;padding:9px 14px;border-radius:6px;font-weight:700;cursor:pointer}
     .btn.play{background:var(--accent)}
     .btn:focus{outline:2px solid rgba(255,255,255,.08)}
+    
+    /* Social sharing section */
+    .social-share{background:var(--panel);padding:24px;margin:20px auto;max-width:600px;border-radius:10px;text-align:center;margin-left:60px}
+    .social-share h3{margin:0 0 16px;font-size:20px}
+    .social-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:600;color:#fff;transition:transform .2s,box-shadow .2s}
+    .social-btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.3)}
+    .social-btn.github{background:#333}
+    .social-btn.twitter{background:#1da1f2}
+    .social-btn.facebook{background:#1877f2}
+    .social-btn.reddit{background:#ff4500}
+    .social-btn.linkedin{background:#0077b5}
+    
+    /* Call to action */
+    .cta-section{background:linear-gradient(135deg,#1e3c72,#2a5298);padding:40px 20px;text-align:center;margin:40px auto;margin-left:60px}
+    .cta-section h2{margin:0 0 12px;font-size:28px}
+    .cta-section p{margin:0 0 20px;font-size:18px;color:#e0e0e0}
+    .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .cta-btn{padding:12px 28px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;display:inline-block;transition:transform .2s}
+    .cta-btn.primary{background:#00b06b;color:#fff}
+    .cta-btn.secondary{background:#fff;color:#1e3c72}
+    .cta-btn:hover{transform:scale(1.05)}
+    
+    /* Hero subtitle and descriptions */
+    .hero-subtitle{margin-top:16px;font-size:16px;color:#aaa}
+    .section-desc{color:var(--muted);margin:0 0 8px}
+    
+    /* Footer styles */
+    footer{background:#232527;text-align:center;padding:20px;font-size:14px;color:#888;margin-top:20px;margin-left:60px}
+    .footer-brand{margin-bottom:12px}
+    .footer-copyright{margin-bottom:12px}
+    .footer-copyright a{color:#00b06b;text-decoration:none}
+    .footer-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+    .footer-links a{color:#aaa;text-decoration:none}
+    
     footer{background:#232527;text-align:center;padding:20px;font-size:14px;color:#888;margin-top:20px;margin-left:60px}
     /* Loading screen */
     #loading-screen{position:fixed;inset:0;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity 1s ease}
@@ -57,8 +104,12 @@
     /* Responsive */
     @media(max-width:560px){
       header{margin-left:0}
-      main, .hero, .games, footer { margin-left:0; }
+      main, .hero, .games, footer, .social-share, .cta-section { margin-left:0; }
       .game-card{width:92%;max-width:420px}
+      .social-buttons{flex-direction:column}
+      .social-btn{width:100%;max-width:300px}
+      .cta-buttons{flex-direction:column;align-items:center}
+      .cta-btn{width:100%;max-width:300px;text-align:center}
     }
   </style>
 </head>
@@ -99,6 +150,7 @@
   <section class="hero" aria-label="Hero">
     <h2>Welcome to KhanBlox</h2>
     <p>Explore a virtual universe where you can create, play with friends, and bring your imagination to life.</p>
+    <p class="hero-subtitle">🌟 Join thousands of creators and players worldwide!</p>
   </section>
 
   <main class="games" role="main" aria-live="polite">
@@ -125,8 +177,53 @@
     <!-- Copy additional cards as needed, ensure target URLs are reachable -->
   </main>
 
+  <!-- Call to Action Section -->
+  <section class="cta-section" aria-label="Call to action">
+    <h2>🚀 Ready to Start Creating?</h2>
+    <p>Join the KhanBlox community and bring your game ideas to life!</p>
+    <div class="cta-buttons">
+      <a href="https://github.com/lomov0/khanblox" class="cta-btn primary" target="_blank" rel="noopener" aria-label="Star KhanBlox project on GitHub">⭐ Star on GitHub</a>
+      <a href="https://github.com/lomov0/khanblox/fork" class="cta-btn secondary" target="_blank" rel="noopener" aria-label="Fork KhanBlox repository and contribute">🔀 Fork & Contribute</a>
+    </div>
+  </section>
+
+  <!-- Social Sharing Section -->
+  <section class="social-share" aria-label="Social media sharing">
+    <h3>📢 Help Us Grow!</h3>
+    <p class="section-desc">Share KhanBlox with your friends and community</p>
+    <div class="social-buttons">
+      <a href="https://github.com/lomov0/khanblox" class="social-btn github" target="_blank" rel="noopener" aria-label="Star KhanBlox project on GitHub">
+        <span>⭐</span> Star on GitHub
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=Check%20out%20KhanBlox%20-%20a%20free%20web-based%20gaming%20platform!%20Create,%20Play%20%26%20Share%20games%20online.&url=https://lomov0.github.io/khanblox/&hashtags=KhanBlox,GameDev,IndieDev" class="social-btn twitter" target="_blank" rel="noopener" aria-label="Share KhanBlox on Twitter">
+        <span>🐦</span> Tweet
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://lomov0.github.io/khanblox/" class="social-btn facebook" target="_blank" rel="noopener" aria-label="Share KhanBlox on Facebook">
+        <span>📘</span> Share
+      </a>
+      <a href="https://www.reddit.com/submit?url=https://lomov0.github.io/khanblox/&title=KhanBlox%20-%20Free%20Web-Based%20Gaming%20Platform" class="social-btn reddit" target="_blank" rel="noopener" aria-label="Share KhanBlox on Reddit">
+        <span>🔴</span> Reddit
+      </a>
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://lomov0.github.io/khanblox/" class="social-btn linkedin" target="_blank" rel="noopener" aria-label="Share KhanBlox on LinkedIn">
+        <span>💼</span> LinkedIn
+      </a>
+    </div>
+  </section>
+
   <footer>
-    © <span id="year"></span> KhanBlox — Built by lomov0
+    <div class="footer-brand">
+      <strong>KhanBlox</strong> — Create, Play & Share Games
+    </div>
+    <div class="footer-copyright">
+      © <span id="year"></span> KhanBlox • Built with ❤️ by <a href="https://github.com/lomov0" target="_blank" rel="noopener">lomov0</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://github.com/lomov0/khanblox" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/lomov0/khanblox/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+      <a href="https://github.com/lomov0/khanblox/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a>
+      <a href="https://github.com/lomov0/khanblox/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a>
+      <a href="https://github.com/lomov0/khanblox/blob/main/TRADEMARKS.md" target="_blank" rel="noopener">Trademarks</a>
+    </div>
   </footer>
 
   <script>
