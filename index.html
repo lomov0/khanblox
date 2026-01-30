@@ -78,6 +78,18 @@
     .cta-btn.secondary{background:#fff;color:#1e3c72}
     .cta-btn:hover{transform:scale(1.05)}
     
+    /* Hero subtitle and descriptions */
+    .hero-subtitle{margin-top:16px;font-size:16px;color:#aaa}
+    .section-desc{color:var(--muted);margin:0 0 8px}
+    
+    /* Footer styles */
+    footer{background:#232527;text-align:center;padding:20px;font-size:14px;color:#888;margin-top:20px;margin-left:60px}
+    .footer-brand{margin-bottom:12px}
+    .footer-copyright{margin-bottom:12px}
+    .footer-copyright a{color:#00b06b;text-decoration:none}
+    .footer-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+    .footer-links a{color:#aaa;text-decoration:none}
+    
     footer{background:#232527;text-align:center;padding:20px;font-size:14px;color:#888;margin-top:20px;margin-left:60px}
     /* Loading screen */
     #loading-screen{position:fixed;inset:0;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;transition:opacity 1s ease}
@@ -138,7 +150,7 @@
   <section class="hero" aria-label="Hero">
     <h2>Welcome to KhanBlox</h2>
     <p>Explore a virtual universe where you can create, play with friends, and bring your imagination to life.</p>
-    <p style="margin-top:16px;font-size:16px;color:#aaa">🌟 Join thousands of creators and players worldwide!</p>
+    <p class="hero-subtitle">🌟 Join thousands of creators and players worldwide!</p>
   </section>
 
   <main class="games" role="main" aria-live="polite">
@@ -166,7 +178,7 @@
   </main>
 
   <!-- Call to Action Section -->
-  <section class="cta-section">
+  <section class="cta-section" aria-label="Call to action">
     <h2>🚀 Ready to Start Creating?</h2>
     <p>Join the KhanBlox community and bring your game ideas to life!</p>
     <div class="cta-buttons">
@@ -176,9 +188,9 @@
   </section>
 
   <!-- Social Sharing Section -->
-  <section class="social-share">
+  <section class="social-share" aria-label="Social media sharing">
     <h3>📢 Help Us Grow!</h3>
-    <p style="color:var(--muted);margin:0 0 8px">Share KhanBlox with your friends and community</p>
+    <p class="section-desc">Share KhanBlox with your friends and community</p>
     <div class="social-buttons">
       <a href="https://github.com/lomov0/khanblox" class="social-btn github" target="_blank" rel="noopener" aria-label="Star KhanBlox project on GitHub">
         <span>⭐</span> Star on GitHub
@@ -199,18 +211,18 @@
   </section>
 
   <footer>
-    <div style="margin-bottom:12px">
+    <div class="footer-brand">
       <strong>KhanBlox</strong> — Create, Play & Share Games
     </div>
-    <div style="margin-bottom:12px">
-      © <span id="year"></span> KhanBlox • Built with ❤️ by <a href="https://github.com/lomov0" style="color:#00b06b;text-decoration:none" target="_blank" rel="noopener">lomov0</a>
+    <div class="footer-copyright">
+      © <span id="year"></span> KhanBlox • Built with ❤️ by <a href="https://github.com/lomov0" target="_blank" rel="noopener">lomov0</a>
     </div>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px">
-      <a href="https://github.com/lomov0/khanblox" style="color:#aaa;text-decoration:none" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://github.com/lomov0/khanblox/blob/main/LICENSE" style="color:#aaa;text-decoration:none" target="_blank" rel="noopener">License</a>
-      <a href="https://github.com/lomov0/khanblox/blob/main/CONTRIBUTING.md" style="color:#aaa;text-decoration:none" target="_blank" rel="noopener">Contribute</a>
-      <a href="https://github.com/lomov0/khanblox/blob/main/CODE_OF_CONDUCT.md" style="color:#aaa;text-decoration:none" target="_blank" rel="noopener">Code of Conduct</a>
-      <a href="https://github.com/lomov0/khanblox/blob/main/TRADEMARKS.md" style="color:#aaa;text-decoration:none" target="_blank" rel="noopener">Trademarks</a>
+    <div class="footer-links">
+      <a href="https://github.com/lomov0/khanblox" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/lomov0/khanblox/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+      <a href="https://github.com/lomov0/khanblox/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contribute</a>
+      <a href="https://github.com/lomov0/khanblox/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener">Code of Conduct</a>
+      <a href="https://github.com/lomov0/khanblox/blob/main/TRADEMARKS.md" target="_blank" rel="noopener">Trademarks</a>
     </div>
   </footer>
 
