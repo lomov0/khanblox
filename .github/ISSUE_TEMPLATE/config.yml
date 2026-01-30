@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/lomov0/khanblox/discussions
+    about: Ask questions, share ideas, or chat with the community
+  - name: 📖 Documentation
+    url: https://github.com/lomov0/khanblox/blob/main/README.md
+    about: Read the documentation and guides
+  - name: 🌐 Website
+    url: https://lomov0.github.io/khanblox/
+    about: Visit the KhanBlox website
